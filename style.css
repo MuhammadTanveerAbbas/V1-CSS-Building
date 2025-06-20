@@ -1,0 +1,203 @@
+/* Import custom Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Foldit:wght@100..900&family=Oi&family=Rubik+Doodle+Shadow&display=swap');
+
+/* Root Variables */
+:root {
+    --width: min(1200px, 100%);
+}
+
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #000;
+    font-family: 'Rubik Doodle Shadow', 'Oi', 'Foldit', 'Bungee Spice', sans-serif;
+    color: #eee;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header (optional) */
+header {
+    width: var(--width);
+    margin: auto;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    padding-inline: 20px;
+    background: #000;
+}
+
+header .logo img {
+    height: 30px;
+}
+
+/* Background City */
+#bg_city {
+    margin-top: -50px;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#bg_city svg {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    min-height: 100vh;
+}
+
+.banner .content {
+    position: absolute;
+    width: var(--width);
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 10vh 40vh 20vh;
+    pointer-events: none;
+    user-select: none;
+}
+
+.banner .content .item:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: #eee;
+    font-weight: 600;
+}
+
+.banner .title {
+    text-align: center;
+    font-size: 5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #eee;
+    font-family: 'Rubik Doodle Shadow', 'Oi', 'Foldit', 'Bungee Spice', sans-serif;
+}
+
+.banner .title p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Content */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-block: 5em;
+    gap: 5em;
+    position: relative;
+    background: #000;
+}
+
+main::after {
+    width: 100%;
+    height: 100px;
+    content: '';
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    bottom: 100%;
+    background-image: linear-gradient(to top, #000, transparent);
+}
+
+/* About Section */
+.about {
+    width: 100%;
+}
+
+.me {
+    text-align: center;
+    color: #f0f0f0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.me h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin-bottom: 0.2em;
+}
+
+.me h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    margin-bottom: 1em;
+    color: #bbb;
+    font-style: italic;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.social-links li {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.social-links li a {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 1023px) {
+    .me h1 {
+        font-size: 3rem;
+    }
+
+    .me h2 {
+        font-size: 2rem;
+    }
+
+    .banner .title {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .me h1 {
+        font-size: 2.5rem;
+    }
+
+    .me h2 {
+        font-size: 1.8rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
