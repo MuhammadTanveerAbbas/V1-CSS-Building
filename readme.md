@@ -27,7 +27,7 @@ A modern, scroll-animated business card built with **GSAP**, **SVG**, and respon
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/MuhammadTanveerAbbas/animated-cards.git
+git clone https://github.com/MuhammadTanveerAbbas/3D--animated-Building.git
 
 # 2. Open in browser
 Use VS Code Live Server Extension
