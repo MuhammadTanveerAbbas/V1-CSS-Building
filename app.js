@@ -43,68 +43,72 @@ async function loadSVG() {
 function setAnimationScroll() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const duration = 1;
-
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: "#bg_city",
       start: "top top",
-      end: "+=1500",
-      scrub: true,
+      end: "+=1200",
+      scrub: 1,
       pin: true,
     },
   });
 
-  tl.to("#bg_city svg", { scale: 1.5, duration, ease: "power1.out" }, 0)
-    .to("#full_city", { opacity: 0, duration, ease: "power1.out" }, 0)
+  tl.to("#bg_city svg", { scale: 1.8, duration: 1, ease: "power2.inOut" }, 0)
+    .to("#full_city", { opacity: 0, x: -100, duration: 0.8, ease: "power2.in" }, 0)
     .to(
       ["#building_top", "#interior_wall_top"],
-      { y: -200, opacity: 0, duration, ease: "power1.out" },
-      duration * 0.5
+      { y: -250, x: 50, opacity: 0, duration: 0.8, ease: "power2.in" },
+      0.3
     )
     .to(
       ["#wall_side", "#interior_wall_side"],
-      { x: -200, opacity: 0, duration, ease: "power1.out" },
-      duration * 0.5
+      { x: -250, y: 30, opacity: 0, duration: 0.8, ease: "power2.in" },
+      0.3
     )
     .to(
       "#wall_front",
-      { x: 200, y: 200, opacity: 0, duration, ease: "power1.out" },
-      duration * 0.5
+      { x: 250, y: 250, opacity: 0, duration: 0.8, ease: "power2.in" },
+      0.3
     )
     .to(
       ["#interior_wall_side_2", "#interior_wall_front"],
-      { opacity: 0, duration, ease: "power1.out" },
-      duration * 1.5
+      { opacity: 0, scale: 0.9, duration: 0.6, ease: "power2.in" },
+      0.8
     )
     .fromTo(
       ".business-card",
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power1.out" },
-      duration * 1.2
+      { opacity: 0, y: 80, scale: 0.95 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.2)" },
+      1
     );
 }
 
 function animateSocialLinks() {
-  gsap.utils.toArray(".social-links li").forEach((el, index) => {
-    gsap.fromTo(
-      el,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        delay: index * 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  });
+  // Animation disabled - links show immediately
+  // gsap.utils.toArray(".social-links li").forEach((el, index) => {
+  //   gsap.fromTo(
+  //     el,
+  //     { opacity: 0, y: 30, x: -20 },
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       x: 0,
+  //       duration: 0.8,
+  //       delay: index * 0.15,
+  //       ease: "back.out(1.5)",
+  //       scrollTrigger: {
+  //         trigger: ".social-links",
+  //         start: "top 85%",
+  //         toggleActions: "play none none none",
+  //       },
+  //     }
+  //   );
+  // });
 }
 
-// Initialize everything
-loadSVG();
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadSVG);
+} else {
+  loadSVG();
+}
