@@ -108,7 +108,16 @@ function animateSocialLinks() {
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadSVG);
+  document.addEventListener('DOMContentLoaded', init);
 } else {
-  loadSVG();
+  init();
+}
+
+function init() {
+  document.body.classList.add('loading');
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    document.body.classList.remove('loading');
+    loadSVG();
+  }, 7000);
 }
